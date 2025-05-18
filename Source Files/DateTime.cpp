@@ -31,15 +31,17 @@ DateTime::DateTime()
 {
     ToDateTimeFormat();
 }
-bool isBefore(const DateTime &other) const
+bool DateTime::isBefore(const DateTime& other) const
 {
     return this->toTimeT() < other.toTimeT();
 }
-bool isAfter(const DateTime &other) const
+bool DateTime::isAfter(const DateTime& other) const
 {
     return this->toTimeT() > other.toTimeT();
 }
-
+bool DateTime::isEqual(const DateTime& other) const {
+    return (this->toTimeT() == other.toTimeT());
+}
 std::string DateTime::toString() const
 {
     std::string str = (std::to_string(day) + " / " + std::to_string(month) + " / " + std::to_string(year) + " - " + std::to_string(hour) + " : " + std::to_string(minute) + " : " + std::to_string(second));

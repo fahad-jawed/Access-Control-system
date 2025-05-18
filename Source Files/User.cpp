@@ -28,9 +28,16 @@ std::string User::generateID() {
             resetFailedLoginAttempts();
             return true;
         }
-
+        //diff functionality for admin, because agar last admin bhi lock out hogya administration kon handle karega..  
+        bool is_admin = false;
+        for (const auto& role : this->roles) {
+            if (role->getRoleID() == ROLEID::ADMIN) {
+                is_admin = true;
+                break;
+            }
+        }
         failed_login_attempts++;
-        if(failed_login_attempts == 5) {
+        if((failed_login_attempts == 5) && !is_admin) {
             is_locked = true;
         }
         return false;

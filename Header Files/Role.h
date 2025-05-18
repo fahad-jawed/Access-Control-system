@@ -17,6 +17,7 @@ class Role {
     
     public:
     Role(ROLEID role_id, std::string role_name, AccessStrategy* access_strategy);
+    ROLEID getRoleID() const;
 
 };
 

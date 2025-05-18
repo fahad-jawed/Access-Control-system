@@ -35,6 +35,7 @@ class User {
     bool checkLockStatus() const;
     void addRole(std::shared_ptr<Role> role);
     bool removeRole(std::shared_ptr<Role> role);
+    virtual bool isAccountCurrentlyActive(const DateTime& current_time) const = 0;
 };
 
 #endif

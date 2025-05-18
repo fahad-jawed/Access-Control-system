@@ -12,7 +12,7 @@
 class RoleFactory {
     public:
     static std::shared_ptr<Role> getRole(ROLEID role_id);
-    AccessStrategy* getAccessStrategy(const std::string& strategy_type);
+    static AccessStrategy* getAccessStrategy(const std::string& strategy_type);
     
     static std::shared_ptr<Role> getAdminInstance();
     static std::shared_ptr<Role> getGuestInstance();

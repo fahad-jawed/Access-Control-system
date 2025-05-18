@@ -14,8 +14,9 @@ private:
 
 public:
     DateTime();
-    bool isBefore(const DateTime &other) const;
-    bool isAfter(const DateTime &other) const;
+    bool isBefore(const DateTime& other) const;
+    bool isAfter(const DateTime& other) const;
+    bool isEqual(const DateTime& other) const;
     std::string toString() const;
     static DateTime getCurrentDateTime();
 };
