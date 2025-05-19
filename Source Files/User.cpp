@@ -48,6 +48,9 @@ std::string User::generateID() {
     std::string User::getUserID() const {
         return userID;
     }
+    std::string User::getName() const {
+        return name;
+    }
     std::set<std::shared_ptr<Role>> User::getRoles() const {
         return roles;
     }

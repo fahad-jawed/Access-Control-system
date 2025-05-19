@@ -24,9 +24,10 @@ class User {
 
     bool is_locked;
     static int counter;
-
     static std::string generateID();
+    
     public:
+
     User(std::string name, std::string password, std::set<std::shared_ptr<Role>>& roles);
     void incrementFailedLoginAttempt();
     void resetFailedLoginAttempts();
@@ -37,10 +38,12 @@ class User {
     void lockAccount();
     void unlockAccount();
     std::string getUserID() const;
+    std::string getName() const;
     void addRole(std::shared_ptr<Role> role);
     bool removeRole(std::shared_ptr<Role> role);
     SecurityLevel getEffectiveClearanceLevel() const;
     virtual bool isAccountCurrentlyActive(const DateTime& current_time) const = 0;
+    virtual ~User() = default;
 };
 
 #endif

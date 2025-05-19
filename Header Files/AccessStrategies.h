@@ -6,9 +6,8 @@
 
 #include "../Header Files/Door.h"
 #include "../Header Files/DateTime.h"
-#include "../Header Files/User.h"
-#include "../Header Files/DerivedUsers.h"
 
+class User;
 
 class AccessStrategy
 {

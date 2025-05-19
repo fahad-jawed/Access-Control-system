@@ -1,5 +1,5 @@
-#ifndef ENUMS.H
-#define ENUMS.H
+#ifndef ENUMS_H
+#define ENUMS_H
 
 enum class SecurityLevel
 {

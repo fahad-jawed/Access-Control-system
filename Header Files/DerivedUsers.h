@@ -1,11 +1,16 @@
 #ifndef DERIVEDUSERS_H
 #define DERIVEDUSERS_H
 
+#include <memory>
+#include <set>
+#include <string>
+
 #include "../Header Files/User.h"
+#include "../Header Files/Role.h"
 #include "../Header Files/DateTime.h"
 #include "../Header Files/enums.h"
 
-class GuestUser : public User {
+class GuestUser : public User { 
     DateTime expiry_datetime;
 
     public:

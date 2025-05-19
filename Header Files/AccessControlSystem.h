@@ -37,14 +37,14 @@ public:
     static AccessControlSystem &getInstance();
     Door* findDoor(const std::string& door_id) const;
     User* findUser(const std::string& user_id) const;
-    bool AccessControlSystem::addUser(ROLEID userType,const std::string& name,const std::string& password, const DateTime* expiry_date = nullptr);
+    bool addUser(ROLEID userType,const std::string& name,const std::string& password, const DateTime* expiry_date = nullptr);
 
 
     bool processAccessRequest(const User &authenticatedUser, const std::string &door_id);
-    bool AccessControlSystem::addDoor (const std::string& location, SecurityLevel security_level, const TimeRange& allowed_times);
+    bool addDoor (const std::string& location, SecurityLevel security_level, const TimeRange& allowed_times);
 
-    const std::vector<std::unique_ptr<User>>& AccessControlSystem::getAllUsers() const;
-    const std::vector<std::unique_ptr<Door>>& AccessControlSystem::getAllDoors() const;
+    const std::vector<std::unique_ptr<User>>& getAllUsers() const;
+    const std::vector<std::unique_ptr<Door>>& getAllDoors() const;
     User* authenticateUser(const std::string& user_id, const std::string& password);
     bool lockAccount(const std::string& userID);
     bool unlockAccount(const std::string& user_id);
