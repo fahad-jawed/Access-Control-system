@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <ctime>
+#include "../Header Files/Time.h"
 
 class DateTime
 {
@@ -19,6 +20,7 @@ public:
     bool isEqual(const DateTime& other) const;
     std::string toString() const;
     static DateTime getCurrentDateTime();
+    Time DateTimetoTime() const ;
 };
 
 #endif

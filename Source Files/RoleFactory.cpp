@@ -3,19 +3,19 @@
 #include "../Header Files/RoleFactory.h"
 
 std::shared_ptr<Role> RoleFactory::getAdminInstance() {
-    static std::shared_ptr<Role>admin_role = std::make_shared<Role>(ROLEID::ADMIN, "Admin User", &(AdminAccessStrategySingleton::getInstance()));
+    static std::shared_ptr<Role>admin_role = std::make_shared<Role>(ROLEID::ADMIN, "Admin User", &(AdminAccessStrategySingleton::getInstance()), SecurityLevel::CRITICAL);
     return admin_role;
 }
 std::shared_ptr<Role> RoleFactory::getGuestInstance() {
-   static std::shared_ptr<Role>guest_role = std::make_shared<Role>(ROLEID::GUEST, "Guest User", &(GuestAccessStrategySingleton::getInstance()));
+   static std::shared_ptr<Role>guest_role = std::make_shared<Role>(ROLEID::GUEST, "Guest User", &(GuestAccessStrategySingleton::getInstance()), SecurityLevel::LOW);
     return guest_role;
 }
 std::shared_ptr<Role> RoleFactory::getRegularInstance() {
-    static std::shared_ptr<Role>regular_role = std::make_shared<Role>(ROLEID::REGULAR, "Regular User", &(RegularAccessStrategySingleton::getInstance()));
+    static std::shared_ptr<Role>regular_role = std::make_shared<Role>(ROLEID::REGULAR, "Regular User", &(RegularAccessStrategySingleton::getInstance()), SecurityLevel::MEDIUM);
     return regular_role;
 }
 std::shared_ptr<Role> RoleFactory::getMaintenanceInstance() {
-    static std::shared_ptr<Role>maintenance_role = std::make_shared<Role>(ROLEID::MAINTENANCE, "Maintenace User", &(MaintenanceAccessStrategySingleton::getInstance()));
+    static std::shared_ptr<Role>maintenance_role = std::make_shared<Role>(ROLEID::MAINTENANCE, "Maintenace User", &(MaintenanceAccessStrategySingleton::getInstance()), SecurityLevel::MAINTENANCE);
     return maintenance_role;
 }
 

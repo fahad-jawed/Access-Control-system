@@ -53,3 +53,7 @@ DateTime DateTime::getCurrentDateTime()
     DateTime current_date_time;
     return current_date_time;
 }
+Time DateTime::DateTimetoTime() const {
+        Time obj (this->hour, this->minute, this->second);
+        return obj;
+    }

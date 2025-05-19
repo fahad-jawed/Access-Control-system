@@ -6,8 +6,8 @@
 
 #include "../Header Files/Door.h"
 #include "../Header Files/DateTime.h"
-
-class User;
+#include "../Header Files/User.h"
+#include "../Header Files/DerivedUsers.h"
 
 
 class AccessStrategy
@@ -15,7 +15,7 @@ class AccessStrategy
 public:
     AccessStrategy() = default;
     virtual ~AccessStrategy() = default;
-    virtual bool checkAccess(const User* user, const Door* door, const DateTime& access_time) const = 0;
+    virtual bool checkAccess(const User& user, const Door& door, const DateTime& access_time) const = 0;
 };
 
 class RegularAccessStrategySingleton : public AccessStrategy {
@@ -26,7 +26,7 @@ private:
 
 public:
     static RegularAccessStrategySingleton& getInstance();
-    bool checkAccess(const User* user, const Door* door, const DateTime& access_time) const override;
+    bool checkAccess(const User& user, const Door& door, const DateTime& access_time) const override;
 };
 
 class GuestAccessStrategySingleton : public AccessStrategy {
@@ -37,7 +37,7 @@ private:
 
 public:
     static GuestAccessStrategySingleton& getInstance();
-    bool checkAccess(const User* user, const Door* door, const DateTime& access_time) const override;
+    bool checkAccess(const User& user, const Door& door, const DateTime& access_time) const override;
 };
 
 class AdminAccessStrategySingleton : public AccessStrategy {
@@ -48,7 +48,7 @@ private:
 
 public:
     static AdminAccessStrategySingleton& getInstance();
-    bool checkAccess(const User* user, const Door* door, const DateTime& access_time) const override;
+    bool checkAccess(const User& user, const Door& door, const DateTime& access_time) const override;
 };
 
 class MaintenanceAccessStrategySingleton : public AccessStrategy {
@@ -59,7 +59,7 @@ private:
 
 public:
     static MaintenanceAccessStrategySingleton& getInstance();
-    bool checkAccess(const User* user, const Door* door, const DateTime& access_time) const override;
+    bool checkAccess(const User& user, const Door& door, const DateTime& access_time) const override;
 };
 
 #endif 

@@ -14,7 +14,7 @@ class UserFactory
 {
     UserFactory();
     UserFactory(const UserFactory& user_factory) = delete;
-    UserFactory operator = (const UserFactory& user_factory) = delete;
+    UserFactory& operator = (const UserFactory& user_factory) = delete;
 public:
     static UserFactory& getInstance () {
         static UserFactory instance;

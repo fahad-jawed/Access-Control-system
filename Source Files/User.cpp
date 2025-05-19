@@ -42,6 +42,12 @@ std::string User::generateID() {
         }
         return false;
     }
+    void User::changePassword(const std::string& new_password) {
+        this->hashed_password = picosha2::hash256_hex_string(new_password);
+    }
+    std::string User::getUserID() const {
+        return userID;
+    }
     std::set<std::shared_ptr<Role>> User::getRoles() const {
         return roles;
     }
@@ -56,5 +62,21 @@ std::string User::generateID() {
             return true;
         }
         return false;
-
+    }
+    SecurityLevel User::getEffectiveClearanceLevel() const {
+    SecurityLevel highestClearance = SecurityLevel::MAINTENANCE;
+    for (const auto& role : roles) {
+        if (role) {
+            if (static_cast<int>(role->getClearanceLevel()) > static_cast<int>(highestClearance)) {
+                highestClearance = role->getClearanceLevel();
+            }
+        }
+    }
+    return highestClearance;
+}
+void User::lockAccount() {
+        this->is_locked = true;
+    }
+void User::unlockAccount() {
+        this->is_locked = false;
     }
